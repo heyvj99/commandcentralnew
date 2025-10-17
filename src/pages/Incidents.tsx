@@ -47,7 +47,15 @@ function Incidents() {
             selectedResources={selectedResources}
             onClearAll={handleClearAll}
           />
-          <div className="Image-map w-full flex-1 bg-grey-50">
+          <div 
+            className="Image-map w-full flex-1 bg-grey-50"
+            style={{
+              backgroundImage: 'url(/src/assets/seattlemap.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+          >
             <ResourceMap selectedResources={selectedResources} />
           </div>
         </div>

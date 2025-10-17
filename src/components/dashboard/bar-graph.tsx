@@ -36,15 +36,15 @@ const chartData = [
 
 const chartConfig = {
   area1: {
-    label: "Area 1",
+    label: "District 1",
     color: "hsl(var(--chart-1))",
   },
   area2: {
-    label: "Area 2",
+    label: "District 2",
     color: "hsl(var(--chart-2))",
   },
   area3: {
-    label: "Area 3",
+    label: "District 3",
     color: "hsl(var(--chart-3))",
   },
 } satisfies ChartConfig;
@@ -92,10 +92,10 @@ export default function BarGraph() {
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          Improved by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
+          Showing response times by fire district for the last 6 months
         </div>
       </CardFooter>
     </Card>

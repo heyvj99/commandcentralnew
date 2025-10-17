@@ -1,7 +1,7 @@
 "use client";
 
 import { TrendingUp } from "lucide-react";
-import { CartesianGrid, LabelList, Line, LineChart, XAxis } from "recharts";
+import { CartesianGrid, LabelList, Line, LineChart, XAxis, Legend } from "recharts";
 
 import {
   Card,
@@ -33,12 +33,12 @@ const chartData = [
 ];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  currentYear: {
+    label: "Current Year",
     color: "hsl(var(--chart-1))",
   },
-  mobile: {
-    label: "Mobile",
+  previousYear: {
+    label: "Previous Year",
     color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig;
@@ -77,10 +77,10 @@ export default function ResponseTime() {
               <Line
                 dataKey="currentYear"
                 type="natural"
-                stroke="var(--color-desktop)"
+                stroke="hsl(var(--chart-1))"
                 strokeWidth={2}
                 dot={{
-                  fill: "var(--color-desktop)",
+                  fill: "hsl(var(--chart-1))",
                 }}
                 activeDot={{
                   r: 6,
@@ -96,21 +96,34 @@ export default function ResponseTime() {
               <Line
                 dataKey="previousYear"
                 type="monotone"
-                stroke="var(--color-mobile)"
+                stroke="hsl(var(--chart-2))"
                 strokeDasharray="5 5"
                 strokeWidth={2}
-                dot={false}
-              />
+                dot={{
+                  fill: "hsl(var(--chart-2))",
+                }}
+                activeDot={{
+                  r: 6,
+                }}
+              >
+                <LabelList
+                  position="top"
+                  offset={12}
+                  className="fill-foreground"
+                  fontSize={12}
+                />
+              </Line>
+              <Legend />
             </LineChart>
           </ChartContainer>
         </div>
       </CardContent>
       <CardFooter className=" shrink-0 flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          Improved by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
+          Showing average response times for the last 12 months
         </div>
       </CardFooter>
     </Card>

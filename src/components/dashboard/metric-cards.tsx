@@ -31,7 +31,7 @@ export default function MetricCards() {
             <TrendingUpIcon className="size-4" color="green" />
           </div>
           <div className="text-muted-foreground">
-            Visitors for the last 6 months
+            Emergency calls responded to in the last 6 months
           </div>
         </CardFooter>
       </Card>
@@ -50,11 +50,11 @@ export default function MetricCards() {
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
-            Down 20% this period{" "}
-            <TrendingDownIcon className="size-4" color="red" />
+            Improved by 20% this period{" "}
+            <TrendingDownIcon className="size-4" color="green" />
           </div>
           <div className="text-muted-foreground">
-            Acquisition needs attention
+            Faster response times achieved
           </div>
         </CardFooter>
       </Card>
@@ -73,10 +73,10 @@ export default function MetricCards() {
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
-            Resources Dispatched{" "}
+            Active Personnel{" "}
             <TrendingUpIcon className="size-4" color="green" />
           </div>
-          <div className="text-muted-foreground">Engagement exceed targets</div>
+          <div className="text-muted-foreground">Firefighters and support staff on duty</div>
         </CardFooter>
       </Card>
       {/* <Card className="@container/card">

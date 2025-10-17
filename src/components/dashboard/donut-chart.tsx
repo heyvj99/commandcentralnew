@@ -16,36 +16,38 @@ import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
 } from "@/components/ui/chart";
 const chartData = [
-  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-  { browser: "firefox", visitors: 187, fill: "var(--color-firefox)" },
-  { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
-  { browser: "other", visitors: 90, fill: "var(--color-other)" },
+  { browser: "Structure Fires", visitors: 275, fill: "hsl(var(--chart-1))" },
+  { browser: "Medical Emergencies", visitors: 200, fill: "var(--color-chart-2)" },
+  { browser: "Vehicle Accidents", visitors: 187, fill: "var(--color-chart-3)" },
+  { browser: "Hazardous Materials", visitors: 173, fill: "var(--color-chart-4)" },
+  { browser: "Other", visitors: 90, fill: "var(--color-chart-5)" },
 ];
 
 const chartConfig = {
   visitors: {
-    label: "Visitors",
+    label: "Incidents",
   },
-  chrome: {
-    label: "Chrome",
+  "Structure Fires": {
+    label: "Structure Fires",
     color: "hsl(var(--chart-1))",
   },
-  safari: {
-    label: "Safari",
+  "Medical Emergencies": {
+    label: "Medical Emergencies",
     color: "hsl(var(--chart-2))",
   },
-  firefox: {
-    label: "Firefox",
+  "Vehicle Accidents": {
+    label: "Vehicle Accidents",
     color: "hsl(var(--chart-3))",
   },
-  edge: {
-    label: "Edge",
+  "Hazardous Materials": {
+    label: "Hazardous Materials",
     color: "hsl(var(--chart-4))",
   },
-  other: {
+  "Other": {
     label: "Other",
     color: "hsl(var(--chart-5))",
   },
@@ -61,12 +63,16 @@ export default function DonutChart() {
       <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[250px]"
+          className="mx-auto aspect-square max-h-[300px]"
         >
           <PieChart>
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
+            />
+            <ChartLegend
+              content={<ChartLegendContent nameKey="browser" />}
+              verticalAlign="bottom"
             />
             <Pie
               data={chartData}
@@ -79,10 +85,10 @@ export default function DonutChart() {
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm items-start">
         <div className="flex items-start gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          Structure fires increased by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
+          Showing incident breakdown for the last 6 months
         </div>
       </CardFooter>
     </Card>
